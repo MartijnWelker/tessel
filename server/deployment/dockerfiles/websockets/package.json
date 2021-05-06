@@ -1,0 +1,8 @@
+{
+  "name": "rentman_socket",
+  "version": "1.0.0",
+  "description": "Socket server for rentman",
+  "dependencies": {
+    "ws": "^7.4.5"
+  }
+}

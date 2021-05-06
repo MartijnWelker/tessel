@@ -1,0 +1,8 @@
+/.git
+/build.sh
+/build-and-deploy.sh
+/deployment/env/*
+/deployment/scripts/*
+/deployment/*.yml
+/logs/*
+/README.md
