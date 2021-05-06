@@ -27,7 +27,7 @@ var ws = require('ws');
 
 
 // fixme: correct url
-const connection = new ws('ws://localhost:6969')
+const connection = new ws('ws://tesselserver.rentman.net')
 
 connection.on('open', () => {
 	console.log('Establised connection to the socket server');

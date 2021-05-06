@@ -4,7 +4,9 @@ module.exports = (function (ws, app) {
 	function doPost (req, res, next) {
 		var message = req.body;
 
-		console.log('got message', message);
+		ws.clients.forEach(function each(client) {
+			client.send(msg);
+		});
 
 		res.writeHead(200, {"Content-Type": "application/json"});
 		res.end();
