@@ -1,0 +1,19 @@
+version: '2.2'
+
+services:
+  websockets:
+    build:
+      context: ../
+      dockerfile: deployment/dockerfiles/websockets/Dockerfile
+    image: tesselserver
+    ports:
+      - "80:80"
+    env_file:
+      - ./env/websockets.env
+    networks:
+      - rentman
+    volumes:
+      - ../app:/src
+networks:
+  rentman:
+    name: rentman
