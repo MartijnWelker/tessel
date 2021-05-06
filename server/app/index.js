@@ -8,10 +8,11 @@ app.use(bodyParser.json());
 app.use(allowCrossDomain);
 
 var server = http.createServer(app);
+const ws = new WebSocket.Server({ server });
+
+var socketServer = require(__dirname + '/server.js')(ws, app);
 
 console.log('starting server');
-
-const wss = new WebSocket.Server({ server });
 
 app.get('/', function (req, res) {
 	res.writeHead('200');
@@ -30,17 +31,6 @@ function allowCrossDomain(req, res, next) {
 
 	next();
 }
-
-
-wss.on('connection', ws => {
-	console.log('connection received');
-
-	ws.on('message', message => {
-		console.log(`Received message => ${message}`)
-	})
-
-	ws.send('ho!')
-})
 
 server.listen(80);
 
