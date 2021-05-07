@@ -4,8 +4,13 @@ module.exports = (function (ws, app) {
 	function doPost (req, res, next) {
 		var message = req.body;
 
+		console.log('received message', JSON.stringify(message));
+
 		ws.clients.forEach(function each(client) {
-			client.send(message);
+			if (client.readyState === WebSocket.OPEN) {
+				console.log('Sending message to client', client.id);
+				client.send(JSON.stringify(message));
+			}
 		});
 
 		res.writeHead(200, {"Content-Type": "application/json"});
