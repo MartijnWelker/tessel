@@ -34,7 +34,7 @@ connection.on('open', () => {
 });
 
 connection.on('error', e => {
-	console.log('who the fuck handles errors', e);
+	console.log('Error in connection', e);
 });
 
 connection.on('message', e => {

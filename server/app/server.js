@@ -5,7 +5,7 @@ module.exports = (function (ws, app) {
 		var message = req.body;
 
 		ws.clients.forEach(function each(client) {
-			client.send(msg);
+			client.send(message);
 		});
 
 		res.writeHead(200, {"Content-Type": "application/json"});
@@ -16,12 +16,6 @@ module.exports = (function (ws, app) {
 
 	ws.on('connection', ws => {
 		console.log('connection received');
-
-		ws.on('message', message => {
-			console.log(`Received message => ${message}`)
-		})
-
-		ws.send('ho!')
 	})
 
 });
