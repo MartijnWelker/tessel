@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-docker build -t tesselserver  -f app/Dockerfile .
+docker build -t tesselserver  -f app/Dockerfile ./app
 
 $(aws ecr get-login --no-include-email --region eu-west-1)
 

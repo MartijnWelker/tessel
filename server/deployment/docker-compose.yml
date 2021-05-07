@@ -3,15 +3,13 @@ version: '2.2'
 services:
   tesselserver:
     build:
-      context: ../
-      dockerfile: app/Dockerfile
+      context: ../app
+      dockerfile: Dockerfile
     image: tesselserver
     ports:
       - "80:80"
     networks:
       - rentman
-    volumes:
-      - ../app:/usr/src/app
 networks:
   rentman:
     name: rentman
