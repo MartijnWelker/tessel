@@ -7,10 +7,8 @@ module.exports = (function (ws, app) {
 		console.log('received message', JSON.stringify(message));
 
 		ws.clients.forEach(function each(client) {
-			if (client.readyState === WebSocket.OPEN) {
-				console.log('Sending message to client', client.id);
-				client.send(JSON.stringify(message));
-			}
+			console.log('Sending message to client', client.id);
+			client.send(JSON.stringify(message));
 		});
 
 		res.writeHead(200, {"Content-Type": "application/json"});
